@@ -9,7 +9,7 @@ import java.util.Collections;
 @Data
 @NoArgsConstructor
 public class Column {
-    private ArrayList<Cell> colum = new ArrayList<Cell>();
+    private ArrayList<CellTable> colum = new ArrayList<CellTable>();
     private String name;
     private double scatter;
 
@@ -17,17 +17,17 @@ public class Column {
         this.name = name;
     }
 
-    public Cell getValue(int index){
+    public CellTable getValue(int index){
         return colum.get(index);
     }
 
-    public void addCells(Cell o){
+    public void addCells(CellTable o){
         colum.add(o);
     }
 
     public void setScatter() {
         ArrayList<Double> num = new ArrayList<Double>();
-        for (Cell c: colum){
+        for (CellTable c: colum){
            num.add(c.getValue());
         }
         Collections.sort(num);

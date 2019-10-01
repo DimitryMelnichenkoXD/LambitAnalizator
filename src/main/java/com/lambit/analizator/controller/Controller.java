@@ -1,13 +1,14 @@
 package com.lambit.analizator.controller;
 
-import com.lambit.analizator.model.ModelXLS;
-import com.lambit.analizator.model.ModelXLSX;
+import com.lambit.analizator.model.ModelFormat;
+import com.lambit.analizator.model.ModelFormatClass;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -52,12 +53,12 @@ public class Controller {
 
     public void startModel() {
         if (FilenameUtils.getExtension(file.getName()).equals("xlsx")) {
-            XSSFWorkbook workbook = readWorkbookXLSX();
-            ModelXLSX model = new ModelXLSX(workbook, maxDiv, minDiv, expectedValue, file.getName());
+            Workbook workbook = readWorkbookXLSX();
+            ModelFormat model = new ModelFormatClass(workbook, maxDiv, minDiv, expectedValue, file.getName());
             model.startView();
         } else {
-            HSSFWorkbook workbook = readWorkbookXLS();
-            ModelXLS model = new ModelXLS(workbook, maxDiv, minDiv, expectedValue, file.getName());
+            Workbook workbook = readWorkbookXLS();
+            ModelFormat model = new ModelFormatClass(workbook, maxDiv, minDiv, expectedValue, file.getName());
             model.startView();
         }
     }

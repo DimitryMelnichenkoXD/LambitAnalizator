@@ -1,6 +1,6 @@
 package com.lambit.analizator.interfaces;
 
-import com.lambit.analizator.table.Cell;
+import com.lambit.analizator.table.CellTable;
 import com.lambit.analizator.table.Column;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,6 @@ import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.data.time.Minute;
 import org.jfree.data.time.Second;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
@@ -154,14 +153,14 @@ public class View {
     private XYDataset makeDataset(Column maxScatterColumn) {
         TimeSeries series = new TimeSeries("График по колонке " + maxScatterColumn.getName());
         for (int i = 0; i < maxScatterColumn.getColum().size() - 1; i++) {
-            Cell bufferCell = maxScatterColumn.getValue(i);
-            LocalDateTime time = bufferCell.getDateTime();
+            CellTable bufferCellTable = maxScatterColumn.getValue(i);
+            LocalDateTime time = bufferCellTable.getDateTime();
             series.add(new Second(time.getSecond(),
                     time.getMinute(),
                     time.getHour(),
                     time.getDayOfMonth(),
                     time.getMonthValue(),
-                    time.getYear()), bufferCell.getValue());
+                    time.getYear()), bufferCellTable.getValue());
         }
         TimeSeriesCollection collection = new TimeSeriesCollection();
         collection.addSeries(series);
