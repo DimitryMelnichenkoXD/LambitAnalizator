@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Lambit_jar</output-path>
     <root id="archive" name="Lambit.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/java/com/lambit/analizator/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/../LambitFXUI/src/main/java/analizator/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="Lambit" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar" path-in-jar="/" />

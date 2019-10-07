@@ -1,6 +1,5 @@
-package com.lambit.analizator.model;
+package com.lambit.analizator.controller.data;
 
-import com.lambit.analizator.table.Column;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.time.LocalDateTime;
@@ -11,9 +10,7 @@ public interface ModelFormat {
     void addCellInColumns();
     void createCell(Row row);
     LocalDateTime getLocalDateTame(Row row);
-    void findScatter();
-    Column maxScatter();
-    void startView();
+    void writeTable();
 
 
 }

@@ -1,7 +1,7 @@
 package com.lambit.analizator.interfaces;
 
-import com.lambit.analizator.table.CellTable;
-import com.lambit.analizator.table.Column;
+import com.lambit.analizator.model.CellTable;
+import com.lambit.analizator.model.Column;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jfree.chart.ChartFactory;
@@ -73,10 +73,10 @@ public class View {
 
     private Box makeMidleBox() {
         Box midleBox = Box.createVerticalBox();
-        JTextArea textField = new JTextArea("Колонка с максимальным разбросом - " + maxScatterColumn.getName() + " Значение: " + maxScatterColumn.getScatter(), 1, 20);
+       // JTextArea textField = new JTextArea("Колонка с максимальным разбросом - " + maxScatterColumn.getName() + " Значение: " + maxScatterColumn.getScatter(), 1, 20);
         JTextArea jTextArea = new JTextArea(textForJArea, 50, 20);
         JScrollPane jScrollPane = new JScrollPane(jTextArea);
-        midleBox.add(textField);
+        //midleBox.add(textField);
         midleBox.add(comboBox());
         midleBox.add(jScrollPane);
         midleBox.add(radioGrop());
@@ -117,13 +117,11 @@ public class View {
         for (int i = 2; i < 34; i++) {
             choseColumsForChart.addItem(tableColums.get(i).getName());
         }
-        choseColumsForChart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                int index = choseColumsForChart.getSelectedIndex() + 2;
-                rezultFrame.setVisible(false);
-                replaseRigthBox(index);
-                rezultFrame.setVisible(true);
-            }
+        choseColumsForChart.addActionListener(e -> {
+            int index = choseColumsForChart.getSelectedIndex() + 2;
+            rezultFrame.setVisible(false);
+            replaseRigthBox(index);
+            rezultFrame.setVisible(true);
         });
         Box boxForCombo = Box.createHorizontalBox();
         boxForCombo.add(choseColumsForChart);

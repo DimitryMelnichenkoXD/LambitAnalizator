@@ -1,4 +1,4 @@
-package com.lambit.analizator.table;
+package com.lambit.analizator.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CellTable {
     private double value;
-    private boolean diviation;
     private LocalDateTime dateTime;
 
 
@@ -20,7 +19,7 @@ public class CellTable {
 
     @Override
     public String toString() {
-        return dateTime +"; "+value+" --- "+diviation;
+        return dateTime +"; "+value+"";
     }
 
 }

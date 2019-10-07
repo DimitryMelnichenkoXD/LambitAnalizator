@@ -1,7 +1,5 @@
-package com.lambit.analizator.controller;
+package com.lambit.analizator.controller.data;
 
-import com.lambit.analizator.model.ModelFormat;
-import com.lambit.analizator.model.ModelFormatClass;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.io.FilenameUtils;
@@ -17,16 +15,11 @@ import java.io.FileInputStream;
 @Data
 @NoArgsConstructor
 public class Controller {
-    //Получкние информации
-    private double maxDiv;
-    private double minDiv;
-    private double expectedValue;
-    private File file;
 
-    public Controller(String maxDiv, String minDiv, String expectedValue, File file) {
-        this.maxDiv = Double.valueOf(maxDiv);
-        this.minDiv = Double.valueOf(minDiv);
-        this.expectedValue = Double.valueOf(expectedValue);
+    private File file;
+    private ModelFormatImpl model;
+
+    public Controller(File file) {
         this.file = file;
     }
 
@@ -35,7 +28,6 @@ public class Controller {
         try {
             return new XSSFWorkbook(OPCPackage.open(fileName));
         } catch (Exception e) {
-            System.out.println("Оштбка не удалось считать книгу(com.lambit.analizator.controller.Controller.java---->48-56)");
             return null;
         }
     }//Получение книги с таблтцой из файла xmls.
@@ -46,7 +38,6 @@ public class Controller {
             POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(fileName));
             return new HSSFWorkbook(fs);
         } catch (Exception e) {
-            System.out.println("Оштбка не удалось считать книгу(com.lambit.analizator.controller.Controller.java---->48-56)");
             return null;
         }
     }//Получение книги с таблтцой из файла.
@@ -54,12 +45,12 @@ public class Controller {
     public void startModel() {
         if (FilenameUtils.getExtension(file.getName()).equals("xlsx")) {
             Workbook workbook = readWorkbookXLSX();
-            ModelFormat model = new ModelFormatClass(workbook, maxDiv, minDiv, expectedValue, file.getName());
-            model.startView();
+            model = new ModelFormatImpl(workbook, file.getName());
+            model.writeTable();
         } else {
             Workbook workbook = readWorkbookXLS();
-            ModelFormat model = new ModelFormatClass(workbook, maxDiv, minDiv, expectedValue, file.getName());
-            model.startView();
+            model = new ModelFormatImpl(workbook, file.getName());
+            model.writeTable();
         }
     }
 }

@@ -1,42 +1,32 @@
-package com.lambit.analizator.model;
+package com.lambit.analizator.controller.data;
 
-import com.lambit.analizator.interfaces.View;
-import com.lambit.analizator.table.CellTable;
-import com.lambit.analizator.table.Column;
-import com.lambit.analizator.table.Table;
+import com.lambit.analizator.model.CellTable;
+import com.lambit.analizator.model.Column;
+import com.lambit.analizator.model.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.val;
-import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 @Data
 @NoArgsConstructor
-public class ModelFormatClass implements ModelFormat {
+public class ModelFormatImpl implements ModelFormat {
     public static final int NECESSARY_INFO_IN_COLUMS = 36;
 
-    private Table table;//FIXME Должно создаваться в конструкторе
-
+    private Table table;
     private Workbook workbook;
     private Sheet page;
-    private double maxDiv;
-    private double minDiv;
-    private double expectedValue;
     private String fileName;
 
-    public ModelFormatClass(Workbook workbook, double maxDiv, double minDiv, double expectedValue, String fileName) {
+    public ModelFormatImpl(Workbook workbook, String fileName) {
             this.table = new Table();
             this.workbook = workbook;
-            this.maxDiv = maxDiv;
-            this.minDiv = minDiv;
-            this.expectedValue = expectedValue;
             this.page = workbook.getSheetAt(0);
             this.fileName = fileName;
     }
@@ -57,12 +47,16 @@ public class ModelFormatClass implements ModelFormat {
 
     public void addCellInColumns(){
         Iterator rowIter = page.rowIterator();
-        while (rowIter.hasNext()){
+        while (rowIter.hasNext()) {
             Row row = (Row) rowIter.next();
-            if(row.getRowNum()!=0){
-                createCell(row);
-            }
+//            Thread threadForCell = new Thread(() -> {
+                if (row.getRowNum() != 0) {
+                    createCell(row);
+                }
+//            });
+//            threadForCell.start();
         }
+
     }//Добавить ячейки в колонки(2)
 
     public void createCell(Row row) {
@@ -75,11 +69,6 @@ public class ModelFormatClass implements ModelFormat {
                 if(index >1&&index< NECESSARY_INFO_IN_COLUMS){
                     double value = cells.getNumericCellValue();
                     CellTable cellTable = new CellTable(value, date);
-                    if(value<= expectedValue + maxDiv &&value>= expectedValue - minDiv){
-                        cellTable.setDiviation(true);
-                    }else{
-                        cellTable.setDiviation(false);
-                    }
                     table.getColumn(index).addCells(cellTable);
                 }
                 index++;
@@ -105,44 +94,20 @@ public class ModelFormatClass implements ModelFormat {
         }
     }//получение значения даты из строкиж
 
-    public void findScatter(){
-        ArrayList<Column> columnInTable= table.getTable();
-        for (int i = 2; i <columnInTable.size() ; i++) {
-            Column c = columnInTable.get(i);
-            c.setScatter();
-        }
-    }//Поиск разброса по колонкам
-
-    public Column maxScatter(){
-        return getColumn(table);
-    }//Метод для нахождения колонки с максимальным пазброссом
 
 
 
-    public void startView(){
+    public void writeTable(){
         createColumnsInTable();
-        addCellInColumns();
-        findScatter();
-        Column columnWithMaxScatter= maxScatter();
-        String outputText = table.showTable();
-        View view = new View(columnWithMaxScatter,outputText,table.getTable(),fileName);
-        view.makeStandartRezultFrame();
+        Thread addCellThread = new Thread(this::addCellInColumns);
+        addCellThread.start();
+        try {
+            addCellThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //Метод для вывода из com.lambit.analizator.interfaces.View.
     }
 
-    static Column getColumn(Table table) {
-        ArrayList<Column> columns = table.getTable();
-        Column rezult = null;
-        for (int i = 2; i < 34; i++) {
-            Column c = columns.get(i);
-            if (rezult == null) {
-                rezult = c;
-            } else {
-                if (rezult.getScatter() <= c.getScatter()) {
-                    rezult = c;
-                }
-            }
-        }
-        return rezult;
-    }
+
 }

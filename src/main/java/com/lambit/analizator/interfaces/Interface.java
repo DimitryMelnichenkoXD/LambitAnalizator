@@ -1,6 +1,5 @@
 package com.lambit.analizator.interfaces;
 
-import com.lambit.analizator.controller.Controller;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -43,8 +42,8 @@ public class Interface{
         Button startButton = new Button("Start");
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Controller controller = new Controller(maxDivField.getText(),minDivField.getText(),numDivField.getText(),getFile());
-                controller.startModel();
+                //Controller controller = new Controller(maxDivField.getText(),minDivField.getText(),numDivField.getText(),getFile());
+              //  controller.startModel();
             }
         });
 
