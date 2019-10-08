@@ -88,7 +88,7 @@ public class MainWindow {
             e.printStackTrace();
         }
 
-        primaryStage.setTitle("Главное окно");
+        primaryStage.setTitle("Обработка размерных спектров");
         primaryStage.setScene(scene);
     }
 }
