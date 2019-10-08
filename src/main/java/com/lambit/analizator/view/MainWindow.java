@@ -62,13 +62,13 @@ public class MainWindow {
        Thread first = new Thread(() -> {
             firstSerialChartChart = (LineChart) scene.lookup("#firstSerialChartChart");
             firstSerialChartChart.getXAxis().setLabel(NAME_AXIS_X);
-            firstSerialChartChart.getYAxis().setLabel("");
+            firstSerialChartChart.getYAxis().setLabel("Относительное изменение, %");
         });
 
         Thread second = new Thread(() -> {
             secondSerialChartChart = (LineChart) scene.lookup("#secondSerialChartChart");
             secondSerialChartChart.getXAxis().setLabel(NAME_AXIS_X);
-            secondSerialChartChart.getYAxis().setLabel("");
+            secondSerialChartChart.getYAxis().setLabel("Абсолютное значение, N/cm3");
         });
 
         Thread third = new Thread(() -> {

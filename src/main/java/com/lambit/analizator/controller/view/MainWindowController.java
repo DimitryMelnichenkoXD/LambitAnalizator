@@ -66,7 +66,7 @@ public class MainWindowController extends Application {
     @Override
     public void start(Stage primaryStage){
         Platform.runLater(() -> {
-            primaryStage.setMaximized (true);
+            //primaryStage.setMaximized (true);
             this.primaryStage = primaryStage;
             mainWindow = new MainWindow(primaryStage);
             primaryStage.show();

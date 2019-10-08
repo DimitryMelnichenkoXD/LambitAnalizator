@@ -1,3 +1,5 @@
+package StartDir;
+
 import com.lambit.analizator.controller.view.MainWindowController;
 
 public class Main {

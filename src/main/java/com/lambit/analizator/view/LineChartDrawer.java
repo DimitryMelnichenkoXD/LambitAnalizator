@@ -5,6 +5,8 @@ import javafx.scene.chart.XYChart;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.format.DateTimeFormatter;
+
 @Data
 @NoArgsConstructor
 public class LineChartDrawer {
@@ -27,7 +29,7 @@ public class LineChartDrawer {
         dateTimeNumberLineChart.setName(nameOfChart);
         columnOfChart.getColum().forEach(cellTable -> {
             dateTimeNumberLineChart.getData()
-                    .add(new XYChart.Data(cellTable.getDateTime().toString(), cellTable.getValue()));
+                    .add(new XYChart.Data(cellTable.getDateTime().format (DateTimeFormatter.ofPattern ("MM/dd/yy HH:mm:ss")), cellTable.getValue()));
         });
     }
 }
