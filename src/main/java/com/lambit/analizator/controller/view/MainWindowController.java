@@ -88,7 +88,7 @@ public class MainWindowController extends Application {
     }
 
     private void thirdSerialWrite() {
-        ObservableList<String> observableList = javafx.collections.FXCollections.observableArrayList("D_avr", "N_cm3");
+        ObservableList<String> observableList = javafx.collections.FXCollections.observableArrayList("D_avr", "N_cm3", "S_cm1");
         thirdSerialChartChoiceBox.setItems(observableList);
 
         thirdSerialChartChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -99,9 +99,12 @@ public class MainWindowController extends Application {
                         thirdSerialChartChart.getYAxis ().setLabel ("Значение размерной структуры, мкм");
                         thirdSerialChartChart.getYAxis ().setLabel ("Изменение размерной структур во времени");
 
-                    }else{
+                    }else if(newValue.toString ().equals ("N_cm3")){
                         thirdSerialChartChart.getYAxis ().setLabel ("Количество частиц в объёме, кол/см3");
                         thirdSerialChartChart.setTitle("Изменение размерных структур во времени");
+                    }else{
+                        thirdSerialChartChart.getYAxis ().setLabel ("Площадь размерных структур, см2");
+                        thirdSerialChartChart.setTitle("Изменение площади размерных структур во времени");
                     }
             }
         });

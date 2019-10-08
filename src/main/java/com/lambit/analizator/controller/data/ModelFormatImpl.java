@@ -17,7 +17,7 @@ import java.util.Iterator;
 @Data
 @NoArgsConstructor
 public class ModelFormatImpl implements ModelFormat {
-    public static final int NECESSARY_INFO_IN_COLUMS = 36;
+    public static final int NECESSARY_INFO_IN_COLUMS = 38;
 
     private Table table;
     private Workbook workbook;

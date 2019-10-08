@@ -6,11 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f816122-04b0-4bcc-8e98-976d199db153" name="Default" comment="Lambit analizator with javaFX UI Clear">
+    <list default="true" id="8f816122-04b0-4bcc-8e98-976d199db153" name="Default" comment="Lambit analizator with javaFX UI Clear Правильное оформление осей играфика в целом">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lambit/analizator/controller/data/ModelFormatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lambit/analizator/controller/data/ModelFormatImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lambit/analizator/controller/view/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lambit/analizator/controller/view/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lambit/analizator/view/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lambit/analizator/view/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/main_window.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +202,7 @@
       <workItem from="1570463493579" duration="93000" />
       <workItem from="1570463790730" duration="34000" />
       <workItem from="1570463845242" duration="8790000" />
-      <workItem from="1570523954002" duration="6177000" />
+      <workItem from="1570523954002" duration="8576000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1569927951486</created>
@@ -254,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570526067899</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Lambit analizator with javaFX UI Clear Правильное оформление осей играфика в целом">
+      <created>1570530537010</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570530537010</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -296,7 +302,8 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="Lambit analizator with javaFX UI" />
     <MESSAGE value="Lambit analizator with javaFX UI Clear" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lambit analizator with javaFX UI Clear" />
+    <MESSAGE value="Lambit analizator with javaFX UI Clear Правильное оформление осей играфика в целом" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lambit analizator with javaFX UI Clear Правильное оформление осей играфика в целом" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
