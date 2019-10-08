@@ -22,7 +22,7 @@
             <content>
               <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity">
                      <children>
-                        <LineChart fx:id="firstSerialChartChart" alternativeColumnFillVisible="true" layoutX="14.0" layoutY="74.0" prefHeight="400.0" prefWidth="329.0" title="Относительное изменения по обьему&#10; &#9;&#9;&#9;во времени " AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="74.0">
+                        <LineChart fx:id="firstSerialChartChart" alternativeColumnFillVisible="true" layoutX="14.0" layoutY="74.0" prefHeight="400.0" prefWidth="329.0" title="Относительное изменения по обьему во времени " titleSide="BOTTOM" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="74.0">
                           <xAxis>
                             <CategoryAxis endMargin="2.0" tickLabelGap="0.0" />
                           </xAxis>
@@ -41,7 +41,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <LineChart fx:id="secondSerialChartChart" prefHeight="400.0" prefWidth="329.0" title="Абсолютное изменение количества вищества&#10;&#9;&#9;&#9;&#9;во времени" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="74.0">
+                        <LineChart fx:id="secondSerialChartChart" prefHeight="400.0" prefWidth="329.0" title="Абсолютное изменение количества виществаво времени" titleSide="BOTTOM" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="74.0">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -60,7 +60,7 @@
                <content>
                   <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity">
                      <children>
-                        <LineChart fx:id="thirdSerialChartChart" prefHeight="400.0" prefWidth="329.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="74.0">
+                        <LineChart fx:id="thirdSerialChartChart" prefHeight="400.0" prefWidth="329.0" titleSide="BOTTOM" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="74.0">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>

@@ -46,7 +46,7 @@ public class MainWindow {
     @FXML
     private MenuItem menuOpenFile;
 
-    private final String NAME_AXIS_X = "Время";
+    private final String NAME_AXIS_X = "Дата, Время";
 
     public MainWindow(Stage primaryStage) {
         try {
@@ -62,19 +62,19 @@ public class MainWindow {
        Thread first = new Thread(() -> {
             firstSerialChartChart = (LineChart) scene.lookup("#firstSerialChartChart");
             firstSerialChartChart.getXAxis().setLabel(NAME_AXIS_X);
-            firstSerialChartChart.getYAxis().setLabel("Относительное изменение, %");
+            firstSerialChartChart.getYAxis().setLabel("Относительное изменение объёма размерных частиц, %");
         });
 
         Thread second = new Thread(() -> {
             secondSerialChartChart = (LineChart) scene.lookup("#secondSerialChartChart");
             secondSerialChartChart.getXAxis().setLabel(NAME_AXIS_X);
-            secondSerialChartChart.getYAxis().setLabel("Абсолютное значение, N/cm3");
+            secondSerialChartChart.getYAxis().setLabel("Относительное значение размерных частиц, %");
         });
 
         Thread third = new Thread(() -> {
             thirdSerialChartChart = (LineChart) scene.lookup("#thirdSerialChartChart");
             thirdSerialChartChart.getXAxis().setLabel(NAME_AXIS_X);
-            thirdSerialChartChart.getYAxis().setLabel("");
+
         });
         first.start();
         second.start();

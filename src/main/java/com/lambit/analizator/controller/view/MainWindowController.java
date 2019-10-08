@@ -77,6 +77,7 @@ public class MainWindowController extends Application {
         launch(args);
     }
 
+    //TODO Доделать очистку осей
     private void serialWrite() {
         ObservableList particleSize = getObservableListByParticleSize();
 
@@ -92,7 +93,16 @@ public class MainWindowController extends Application {
 
         thirdSerialChartChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null){
+                thirdSerialChartChart.getData().clear();
                 refreshScene(thirdSerialChartChart, INFO_IN_TABLE_FOR_THIRD_SERIAL_CHART, thirdSerialChartChoiceBox, thirdSerialChartLable);
+                    if(newValue.toString ().equals ("D_avr")){
+                        thirdSerialChartChart.getYAxis ().setLabel ("Значение размерной структуры, мкм");
+                        thirdSerialChartChart.getYAxis ().setLabel ("Изменение размерной структур во времени");
+
+                    }else{
+                        thirdSerialChartChart.getYAxis ().setLabel ("Количество частиц в объёме, кол/см3");
+                        thirdSerialChartChart.setTitle("Изменение размерных структур во времени");
+                    }
             }
         });
         thirdSerialChartChoiceBox.getSelectionModel().selectFirst();
